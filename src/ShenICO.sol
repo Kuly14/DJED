@@ -20,6 +20,7 @@ contract ShenICO is ReentrancyGuard, Ownable {
     AggregatorV3Interface public immutable feed;
     IERC20 public immutable shen;
     IERC20 public immutable wbtc;
+    // Price is $4.5
     uint public constant shenPrice = 4e18 + 5e17;
 
     uint public immutable endTimeStamp = block.timestamp + 5 days;
