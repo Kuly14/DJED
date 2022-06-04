@@ -4,6 +4,8 @@ This is a Solidity implementation of this beautiful paper from IOHK: https://epr
 
 We use WBTC as the Base Coin, DJED as the Stable Coin and SHEN as the Reserve Coin.
 
+Because Bitcoin is not as volatile as other coins I moved the rmax to 700% and rmin to 300%
+
 ## To deploy
 
 First we deploy Djed, Shen and the ICO. The script automatically mints shen for the ico. It will mint 10 000 000 tokens and the price is set to 4.5$ during the ico.
