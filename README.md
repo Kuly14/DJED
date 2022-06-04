@@ -10,7 +10,7 @@ First we deploy Djed, Shen and the ICO. The script automatically mints shen for 
 yarn hardhat --network mainnet deploy --tags first
 ```
 
-After the ICO is over 
+After the ICO is over. If you deploy before the ICO is over the transfer_tx won't go through and you will have to do it manually.
 
 ```bash
 yarn hardhat --network mainnet deploy --tags second
