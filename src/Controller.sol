@@ -68,6 +68,7 @@ contract Controller is ReentrancyGuard {
     }
 
     function sellDjed(uint _amount) external nonReentrant {
+        require(_amount > 1e18, "CONTROLLER: Not enough DJED");
         require(
             djed.balanceOf(msg.sender) >= _amount,
             "CONTROLLER: Low Djed Balance"
@@ -82,6 +83,7 @@ contract Controller is ReentrancyGuard {
     }
 
     function buyShen(uint _amountOfShen) external nonReentrant {
+        require(_amountOfShen > 0, "CONTROLLER: Not Enough SHEN");
         require(getRatio() <= rMax, "CONTROLLER: High Reserves");
         uint shenP = shenPrice();
         uint price = getPrice();
@@ -94,6 +96,7 @@ contract Controller is ReentrancyGuard {
     }
 
     function sellShen(uint _amount) external nonReentrant {
+        require(_amount > 0, "CONTROLLER: Not Enough SHEN");
         require(
             shen.balanceOf(msg.sender) >= _amount,
             "CONTROLLER: Low Balance"

@@ -22,10 +22,10 @@ describe("Djed Tests", () => {
 
     djed = await ethers.getContract("Djed");
     shen = await ethers.getContract("Shen");
-    cont = await ethers.getContract("Controller");
     ico = await ethers.getContract("ShenICO");
     wbtc = await ethers.getContract("MockWBTC");
     feed = await ethers.getContract("AggregatorV3Mock");
+    cont = await ethers.getContract("Controller");
 
     const mintWbtc_tx1 = await wbtc.mint(user.address, parse("100000"));
     await mintWbtc_tx1.wait();
