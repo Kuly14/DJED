@@ -23,16 +23,10 @@ describe("Djed Tests", () => {
 
     djed = await ethers.getContract("Djed");
     shen = await ethers.getContract("Shen");
-    cont = await ethers.getContract("Controller");
     ico = await ethers.getContract("ShenICO");
     wbtc = await ethers.getContract("MockWBTC");
     feed = await ethers.getContract("AggregatorV3Mock");
-
-    // const mintShen_tx = await shen.mint(ico.address, parse("10000000"));
-    // await mintShen_tx.wait();
-
-    // const mintDjed_tx = await djed.mint(randomAddress, parse("1"));
-    // await mintDjed_tx.wait();
+    cont = await ethers.getContract("Controller");
 
     const mintWbtc_tx1 = await wbtc.mint(user.address, parse("100000"));
     await mintWbtc_tx1.wait();
@@ -40,11 +34,6 @@ describe("Djed Tests", () => {
     await mintWbtc_tx2.wait();
     const mintWbtc_tx3 = await wbtc.mint(user3.address, parse("100000"));
     await mintWbtc_tx3.wait();
-
-    // const transferOwnershipDjed_tx = await djed.transferOwnership(cont.address);
-    // await transferOwnershipDjed_tx.wait();
-    // const transferOwnershipShen_tx = await shen.transferOwnership(cont.address);
-    // await transferOwnershipShen_tx.wait();
   });
 
   describe("StableCoin Workflow", () => {

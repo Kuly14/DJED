@@ -50,6 +50,12 @@ const deployController: DeployFunction = async function (
   const djed = await ethers.getContract("Djed", deployer);
   const shen = await ethers.getContract("Shen", deployer);
   const cont = await ethers.getContract("Controller", deployer);
+  const ico = await ethers.getContract("ShenICO", deployer);
+  if (network.name == "mainnet") {
+    // We send the WBTC from the ico to the Controller so users can start mint DJED and SHEN.
+    const transfer_tx = await ico.transferWBTC(cont.address);
+    await transfer_tx.wait();
+  }
 
   // We transfer ownership to the Controller address so it can mint tokens and we don't have any control over it.
   await djed.transferOwnership(cont.address);
