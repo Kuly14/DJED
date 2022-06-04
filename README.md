@@ -16,4 +16,4 @@ After the ICO is over
 yarn hardhat --network mainnet deploy --tags second
 ```
 
-This will deploy the controller.
+This will deploy the controller, transfer the WBTC from the ICO and transfers ownership of the minting to the controller.
