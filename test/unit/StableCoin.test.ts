@@ -15,7 +15,6 @@ describe("Djed Tests", () => {
   let user: SignerWithAddress;
   let user2: SignerWithAddress;
   let user3: SignerWithAddress;
-  const randomAddress = "0xEb215b73716a31B813914eCb2aD60dFBF589371a";
 
   before(async () => {
     await deployments.fixture(["all"]);
