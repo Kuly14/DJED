@@ -51,6 +51,7 @@ const deployController: DeployFunction = async function (
   const shen = await ethers.getContract("Shen", deployer);
   const cont = await ethers.getContract("Controller", deployer);
   const ico = await ethers.getContract("ShenICO", deployer);
+
   if (network.name == "mainnet") {
     // We send the WBTC from the ico to the Controller so users can start mint DJED and SHEN.
     const transfer_tx = await ico.transferWBTC(cont.address);

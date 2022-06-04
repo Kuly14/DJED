@@ -15,7 +15,6 @@ describe("Djed Tests", () => {
   let user: SignerWithAddress;
   let user2: SignerWithAddress;
   let user3: SignerWithAddress;
-  const randomAddress = "0xEb215b73716a31B813914eCb2aD60dFBF589371a";
 
   before(async () => {
     await deployments.fixture(["all"]);
@@ -258,7 +257,7 @@ describe("Djed Tests", () => {
       ).to.be.revertedWith("CONTROLLER: Low Reserves");
     });
 
-    it("Should decrease the price so it looses ", async () => {
+    it("Should decrease the price so it looses the peg", async () => {
       const changePrice_tx2 = await feed.changeRoundData("1000000000000");
       await changePrice_tx2.wait();
 
@@ -268,7 +267,7 @@ describe("Djed Tests", () => {
       );
     });
     it("Should sell djed", async () => {
-      // Ratio is now at only 50% so for 1 djed you receive only 55 cents
+      // Ratio is now at only 55% so for 1 djed you receive only 55 cents
 
       const approve_tx1 = await djed
         .connect(user)
@@ -296,12 +295,6 @@ describe("Djed Tests", () => {
       await expect(
         cont.connect(user).buyDjed(parse("1000"))
       ).to.be.revertedWith("CONTORLLER: Low Reserves");
-    });
-
-    it("Should check price feed", async () => {
-      const price_tx = await cont.getPrice();
-
-      expect(price_tx).is.gt(parse("8000"));
     });
   });
 });
