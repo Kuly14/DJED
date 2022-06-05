@@ -13,7 +13,7 @@ This will help a lot because it will be pretty hard to find enough willing buyer
 
 Clone this repo
 ```bash
-git clone [https://github.com/Kuly14/DJED](https://github.com/Kuly14/DJED.git)
+git clone https://github.com/Kuly14/DJED.git
 ```
 
 Install dependencies
