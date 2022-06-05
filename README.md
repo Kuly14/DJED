@@ -6,7 +6,7 @@ We use WBTC as the Base Coin, DJED as the Stable Coin and SHEN as the Reserve Co
 
 Because Bitcoin is not as volatile as other coins I moved the rmax to 700% and rmin to 300%
 
-This will help a lot because it will be pretty hard to find enough willing buyers of the Reserve Coin.
+This will help a lot because it will be pretty hard to find enough willing buyers of the Reserve Coin in though markets.
 
 
 ## To install
