@@ -55,5 +55,5 @@ After the ICO is over deploy the main controller that the users will interact wi
 yarn hardhat --network mainnet deploy --tags second
 ```
 
-This will deploy the controller, transfer the WBTC from the ICO and transfers ownership of the tokens to the controller.
+This will deploy the controller, transfer the WBTC from the ICO and transfers ownership of the tokens to the controller. After this step the stable coin is live and can be freely traded.
 
