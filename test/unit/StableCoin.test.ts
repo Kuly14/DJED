@@ -15,6 +15,8 @@ describe("Djed Tests", () => {
   let user: SignerWithAddress;
   let user2: SignerWithAddress;
   let user3: SignerWithAddress;
+  const maxNum = ethers.constants.MaxUint256;
+
 
   before(async () => {
     await deployments.fixture(["all"]);
@@ -37,15 +39,13 @@ describe("Djed Tests", () => {
 
   describe("StableCoin Workflow", () => {
     it("Should complete the ico", async () => {
-      const approve_tx1 = await wbtc
-        .connect(user)
-        .approve(ico.address, parse("10000000000000"));
+      const approve_tx1 = await wbtc.connect(user).approve(ico.address, maxNum);
       const approve_tx2 = await wbtc
         .connect(user2)
-        .approve(ico.address, parse("10000000000000"));
+        .approve(ico.address, maxNum);
       const approve_tx3 = await wbtc
         .connect(user3)
-        .approve(ico.address, parse("10000000000000"));
+        .approve(ico.address, maxNum);
 
       const buyShen_tx1 = await ico.connect(user).buyShenICO(parse("10000"));
       await buyShen_tx1.wait();
@@ -77,14 +77,14 @@ describe("Djed Tests", () => {
     it("Should buy djed", async () => {
       const approve_tx1 = await wbtc
         .connect(user)
-        .approve(cont.address, parse("100000000000000000"));
+        .approve(cont.address, maxNum);
       const approve_tx2 = await wbtc
         .connect(user2)
-        .approve(cont.address, parse("100000000000000000"));
+        .approve(cont.address, maxNum);
 
       const approve_tx3 = await wbtc
         .connect(user3)
-        .approve(cont.address, parse("100000000000000000"));
+        .approve(cont.address, maxNum);
 
       const buyDjed_tx1 = await cont.connect(user).buyDjed(parse("100000"));
       await buyDjed_tx1.wait();
@@ -185,7 +185,7 @@ describe("Djed Tests", () => {
     });
 
     it("Should not be able to sell shen and buy djed", async () => {
-      await shen.connect(user).approve(cont.address, parse("1000000000000"));
+      await shen.connect(user).approve(cont.address, maxNum);
 
       await expect(
         cont.connect(user).sellShen(parse("1000"))
@@ -234,12 +234,12 @@ describe("Djed Tests", () => {
 
       const approve_tx = await shen
         .connect(user2)
-        .approve(cont.address, parse("10000000000000"));
+        .approve(cont.address, maxNum);
       await approve_tx.wait();
 
       const approve_tx3 = await shen
         .connect(user3)
-        .approve(cont.address, parse("1000000000000000"));
+        .approve(cont.address, maxNum);
       await approve_tx3.wait();
 
       const balance2 = await shen.balanceOf(user2.address);
@@ -271,15 +271,15 @@ describe("Djed Tests", () => {
 
       const approve_tx1 = await djed
         .connect(user)
-        .approve(cont.address, parse("1000000000"));
+        .approve(cont.address, maxNum);
 
       const approve_tx2 = await djed
         .connect(user2)
-        .approve(cont.address, parse("1000000000"));
+        .approve(cont.address, maxNum);
 
       const approve_tx3 = await djed
         .connect(user3)
-        .approve(cont.address, parse("1000000000"));
+        .approve(cont.address, maxNum);
 
       // Even though the peg is lost djed holders have priority and they can withdraw.
       // Shen holders can't. They can only buy. But for a good price in this case 1$.
