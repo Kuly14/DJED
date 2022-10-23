@@ -6,8 +6,6 @@ We use WBTC as the Base Coin, DJED as the Stable Coin and SHEN as the Reserve Co
 
 Because Bitcoin is not as volatile as other coins I moved the rmax to 700% and rmin to 300%
 
-This will help a lot because it will be pretty hard to find enough willing buyers of the Reserve Coin in though markets.
-
 
 ## To install
 
@@ -24,7 +22,7 @@ yarn
 
 Create .env file and specify your Rinkeby Rpc Url, Mainnet Rpc Url and your Private key.
 
-## To test
+## Tests
 
 After installing dependencies run
 
@@ -41,7 +39,7 @@ yarn hardhat coverage
 ```
 
 
-## To deploy to mainnet
+## Deploy to mainnet
 
 First we deploy Djed, Shen and the ICO. The script automatically mints shen for the ico. It will mint 10 000 000 tokens and the price is set to 4.5$ during the ico.
 
